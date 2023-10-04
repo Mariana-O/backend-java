@@ -1,20 +1,27 @@
-package senac.java.Views;
+package senac.java.Services;
 import senac.java.Domain.Users;
 import senac.java.Domain.Products;
 import senac.java.Domain.SalesPerson;
+import senac.java.Views.Telas;
 
 
 import java.util.Scanner;
 
 public class Cadastrar{
 
+
+
    static Scanner sc = new Scanner(System.in);
    static SalesPerson salesperson = new SalesPerson();
    static Users user = new Users();
    static Products product = new Products();
 
+   static Telas tela = new Telas();
 
-    public static int cadastrarVendedor() {
+   static Decisoes decisao = new Decisoes();
+
+
+    public static void cadastrarVendedor() {
     System.out.println("Cadastro de Vendedores");
     System.out.println();
 
@@ -33,7 +40,10 @@ public class Cadastrar{
     System.out.println("Digite sua senha:");
     salesperson.email = sc.nextLine();
 
-        return 0;
+        tela.Imprimir("Vendedor");
+
+
+
     }
 
     public static void cadastrarCliente() {
@@ -49,11 +59,20 @@ public class Cadastrar{
         System.out.println("Idade do usuário:");
         user.age = Integer.parseInt(sc.nextLine());
 
+        System.out.println("Endereço do usuário:");
+        user.address = sc.nextLine();
+
         System.out.println("Digite seu email:");
         user.email = sc.nextLine();
 
         System.out.println("Digite sua senha:");
         user.password = sc.nextLine();
+
+        System.out.println("Digite seu cpf:");
+        user.cpf = sc.nextLine();
+
+        tela.Imprimir("Cliente");
+
 
     }
 
@@ -78,6 +97,9 @@ public class Cadastrar{
 
         System.out.println("imagem do produto:");
         product.pImg = sc.nextLine();
+
+        tela.Imprimir("Produto");
+
 
     }
 }
